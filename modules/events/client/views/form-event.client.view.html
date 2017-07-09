@@ -1,0 +1,59 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.event._id ? 'Edit Event' : 'New Event'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.eventForm" class="form-horizontal" ng-submit="vm.save(vm.form.eventForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Event Name</label>
+          <input name="name" type="text" ng-model="vm.event.name" id="name" class="form-control" placeholder="Name" required>
+          <!--
+            <div ng-messages="vm.form.eventForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Event name is required.</p>
+          </div>
+          -->
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="body">Body</label>
+          <textarea name="body" type="text" ng-model="vm.event.body" id="body" class="form-control" placeholder="Body" required></textarea>         
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="date">Event Date</label>
+          <input class="form-control" ui-date="{ dateFormat: 'yy-mm-dd' }" type="date" ng-model="vm.event.date" name="date" id="date" required Style="Max-Width:200px; Margin-Left:0px;"/>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="time">Event Time</label>
+          <input name="time" type="text" ng-model="vm.event.time" id="time" class="form-control" placeholder="Event Time" required>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="tags">Tags</label>
+          <input name="tags" type="text" ng-model="vm.event.tags" id="tags" class="form-control" placeholder="Tags" required/>        
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="category">Category</label>
+          <select name="category" type="text" ng-model="vm.event.category" id="category" class="form-control" placeholder="Category" required Style="Max-Width:200px">
+            <option value=""></option>
+            <option value="Festival">Festival</option>
+            <option value="Fair">Fair</option>
+            <option value="Concert">Concert</option>
+            <option value="Special Event">Special Event</option>
+            <option value="Other">Other</option>
+          </select>        
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.event._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
