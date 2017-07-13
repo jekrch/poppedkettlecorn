@@ -22,7 +22,7 @@ module.exports = {
     }
   },
   app: {
-    title: defaultEnvConfig.app.title + ' - Development Environment'
+    title: 'Popped Kettlecorn'
   },
   facebook: {
     clientID: process.env.FACEBOOK_ID || 'APP_ID',

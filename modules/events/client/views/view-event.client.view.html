@@ -4,7 +4,7 @@
       <span ng-bind="vm.event.name"></span>
       <small>({{vm.event.category}})</small>
     </h1>
-    <div ng-bind="vm.event.body"></div>
+    <div ng-bind-html="vm.bodyHtml"></div>
     <br>
     <p>Tags: <strong>{{vm.event.tags}}</strong></p>
   </div>

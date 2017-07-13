@@ -6,11 +6,12 @@
     .module('events')
     .controller('EventsController', EventsController);
 
-  EventsController.$inject = ['$scope', '$state', '$window', 'Authentication', 'eventResolve'];
+  EventsController.$inject = ['$scope', '$state', '$window', 'Authentication', 'eventResolve', '$sce' ];
 
-  function EventsController ($scope, $state, $window, Authentication, event) {
+  function EventsController ($scope, $state, $window, Authentication, event, $sce) {
     var vm = this;
 
+    vm.bodyHtml = $sce.trustAsHtml(event.body) 
     vm.authentication = Authentication;
     vm.event = event;
     vm.error = null;
